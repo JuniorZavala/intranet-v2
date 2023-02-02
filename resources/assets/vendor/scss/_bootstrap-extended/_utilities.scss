@@ -653,7 +653,7 @@ $utilities: map-merge(
   > [class$=' col'],
   > [class='col'] {
     position: relative;
-    padding-top: 1px;
+    padding: 15px;
 
     &::before {
       content: '';

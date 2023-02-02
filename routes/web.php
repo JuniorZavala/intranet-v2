@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 $controller_path = 'App\Http\Controllers';
 
-// Main Page Route
-Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+
+Route::get('/', [LoginController::class, 'showLogin']);
+
+// Rutas
+Route::post('/login',[LoginController::class, 'login'])->name('login');
+Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
 
 // layout
 Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');
