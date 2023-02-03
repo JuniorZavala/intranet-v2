@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::get('/', [LoginController::class, 'showLogin']);
 Route::post('/login',[LoginController::class, 'login'])->name('login');
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
+Route::get('/empleados',[EmpleadoController::class,'empleados'])->name('empleados');
 
 // layout
 Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');

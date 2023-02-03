@@ -4,9 +4,8 @@
   <div class="app-brand demo">
     <a href="{{url('/')}}" class="app-brand-link">
       <span class="app-brand-logo demo">
-        @include('_partials.macros',["width"=>25,"withbg"=>'#696cff'])
+        <img src="assets/img/logos/logo-inmobitec-footer.png" width="160px">
       </span>
-      <span class="app-brand-text demo menu-text fw-bold ms-2">{{config('variables.templateName')}}</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-autod-block d-xl-none">
@@ -17,6 +16,7 @@
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
+
     @foreach ($menuData[0]->menu as $menu)
 
     {{-- adding active and open class if child is active --}}

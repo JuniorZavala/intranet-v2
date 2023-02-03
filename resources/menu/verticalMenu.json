@@ -1,9 +1,21 @@
 {
   "menu": [
     {
-      "url": "/",
+      "url": "/dashboard",
       "name": "Dashboard",
       "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "url": "/empleados",
+      "name": "Empleados",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "url": "/",
+      "name": "Empresas",
+      "icon": "menu-icon tf-icons bx bx-rocket",
       "slug": "dashboard-analytics"
     },
     {
@@ -40,10 +52,28 @@
       ]
     },
     {
-      "menuHeader": "Pages"
+      "menuHeader": "Mis Documentos"
     },
     {
-      "name": "Account Settings",
+      "url": "/",
+      "name": "Documentos",
+      "icon": "menu-icon tf-icons bx bx-book-alt",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "url": "/",
+      "name": "Contratos",
+      "icon": "menu-icon tf-icons bx bx-task",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "url": "/",
+      "name": "Reglamentos",
+      "icon": "menu-icon tf-icons bx bx-comment-error",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "name": "Mis Boletas",
       "icon": "menu-icon tf-icons bx bx bx-dock-top",
       "slug": "pages-account-settings",
       "submenu": [
@@ -109,13 +139,19 @@
       ]
     },
     {
-      "menuHeader": "Components"
+      "menuHeader": "Boletas de Pago"
     },
     {
-      "name": "Cards",
-      "icon": "menu-icon tf-icons bx bx-collection",
+      "name": "Ver Boletas",
+      "icon": "menu-icon tf-icons bx bx-user-pin",
       "slug": "cards-basic",
-      "url": "/cards/basic"
+      "url": "/"
+    },
+    {
+      "name": "Ingresar Boletas",
+      "icon": "menu-icon tf-icons bx bx-edit",
+      "slug": "cards-basic",
+      "url": "/"
     },
     {
       "name": "User interface",
