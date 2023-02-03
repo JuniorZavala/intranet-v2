@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class EmpleadoController extends Controller
 {
   public function empleados(){
-    $empleados = Empleados::all();
+
+    $empleados = Empleados::paginate(10);
 
     return view('content.pages.empleados', ['empleados' => $empleados]);
 
