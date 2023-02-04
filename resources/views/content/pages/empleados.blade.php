@@ -11,7 +11,7 @@
 <div class="card">
   <div class="table-responsive text-nowrap m-3">
     <table class="table">
-      <thead>
+      <thead class="table-info">
         <tr>
           <th>Nombres Completos</th>
           <th>DNI</th>
@@ -23,17 +23,17 @@
       </thead>
       <tbody class="table-border-bottom-0">
         @foreach ( $empleados as $empleado )
-        <tr>
-          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$empleado->nombre}}</strong></td>
+        <tr class="table-default text-capitalize">
+          <td><i class="tf-icons bx bx-user fa-lg me-1"></i> {{$empleado->nombre}} {{$empleado->ape_pat}} {{$empleado->ape_mat}}</td>
           <td>{{$empleado->nro_doc}}</td>
-          <td>{{$empleado->puesto_id}}</td>
-          <td><span class="badge bg-label-primary me-1">Active</span></td>
-          <td>Albert Cook</td>
+          <td>{{$empleado->puesto->nombre}}</td>
+          <td><span class="badge bg-label-primary me-1">{{$empleado->area->nombre}}</span></td>
+          <td>{{$empleado->empresa->razon_social}}</td>
           <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                <a class="dropdown-item" href="{{ route('empleado-show', $empleado->id)}}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                 <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
               </div>
             </div>

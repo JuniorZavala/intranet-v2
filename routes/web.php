@@ -25,7 +25,9 @@ Route::get('/', [LoginController::class, 'showLogin']);
 Route::post('/login',[LoginController::class, 'login'])->name('login');
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
-Route::get('/empleados',[EmpleadoController::class,'empleados'])->name('empleados');
+Route::get('/empleados',[EmpleadoController::class,'index'])->name('empleados');
+Route::get('/empleados/{empleado}',[EmpleadoController::class,'show'])->name('empleado-show');
+
 
 // layout
 Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');
