@@ -31,10 +31,10 @@
           <td>{{$empleado->empresa->razon_social}}</td>
           <td>
           <a href="{{ route('empleado-show', $empleado->id)}}" class="btn btn-icon btn-primary">
-                <span class="tf-icons bx bx-pie-chart-alt"></span>
+                <span class="tf-icons bx bx-edit"></span>
           </a>
           <a href="{{ route('empleado-show', $empleado->id)}}" class="btn btn-icon btn-danger">
-            <span class="tf-icons bx bx-pie-chart-alt"></span>
+            <span class="tf-icons bx bx-trash"></span>
           </a>
            <!--/  <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>

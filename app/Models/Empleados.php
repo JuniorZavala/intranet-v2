@@ -30,4 +30,9 @@ class Empleados extends Model
         return $this->belongsTo(Empresas::class, 'empresa_id','id');
     }
 
+    public function esta_civil(): BelongsTo
+    {
+        return $this->belongsTo(Esta_civiles::class, 'esta_civiles','id');
+    }
+
 }
