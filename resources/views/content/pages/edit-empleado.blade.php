@@ -4,6 +4,56 @@
 
 @section('page-script')
 <script src="{{asset('assets/js/pages-account-settings-account.js')}}"></script>
+<script>
+
+  const getAreas = async () => {
+    let empresa = document.querySelector('#empresa');
+    let areas = document.querySelector('#areas');
+
+    //obtener areas  por empresa seleccionada
+    let url = "{{route('mostrar-areas', ':empresa')}}";
+    url = url.replace(':empresa', empresa.value);
+    let areasEmpresa = await fetch(url).then(response => response.json());
+
+    let options = document.querySelectorAll('#areas option');
+    options.forEach(o => o.remove());
+
+    //llenar select con options por area
+    for (const [key, value] of Object.entries(areasEmpresa)) {
+      let option = document.createElement('option');
+      option.value = key;
+      option.innerHTML = value;
+      areas.appendChild(option);
+    }
+  }
+
+  const getPuestos = async () =>{
+
+    let empresa = document.querySelector('#empresa');
+    let areas = document.querySelector('#areas');
+    let puestos = document.querySelector('#puesto');
+
+    //obtener puestos por areas seleccionada
+    let url = "{{route('mostrar-puestos', ':areas')}}";
+    url = url.replace(':areas', areas.value);
+    let areasPuestos = await fetch(url, { body: {
+        empresa, areas
+    }}).then(response => response.json());
+
+    let optionsPuesto = document.querySelectorAll('#puesto option');
+    optionsPuesto.forEach(o => o.remove());
+
+    //llenar select con options por puesto
+    for (const [key, value] of Object.entries(areasPuestos)) {
+      let option = document.createElement('option');
+      option.value = key;
+      option.innerHTML = value;
+      puestos.appendChild(option);
+    }
+
+  }
+
+</script>
 @endsection
 
 @section('content')
@@ -53,7 +103,7 @@
             </div>
             <div class="mb-3 col-md-6">
               <label class="form-label">Empresa</label>
-              <select id="empresa" class="select2 form-select">
+              <select id="empresa" onchange="getAreas()" class="select2 form-select">
                 @foreach ( $empresas as $empresa)
                 <option value="{{$empresa->id}}" @selected($empresa->id == $empleado->empresa_id)>{{$empresa->razon_social}}</option>
                 @endforeach
@@ -61,7 +111,7 @@
             </div>
             <div class="mb-3 col-md-6">
               <label class="form-label">Área</label>
-              <select id="area" class="select2 form-select">
+              <select id="areas" onchange="getPuestos()" class="select2 form-select">
                 @foreach ( $areas as $area)
                 <option value="{{$area->id}}" @selected($area->id == $empleado->area_id)>{{$area->nombre}}</option>
                 @endforeach
@@ -117,8 +167,8 @@
             </div>
           </div>
           <div class="mt-2">
-            <button type="submit" class="btn btn-primary me-2">Save changes</button>
-            <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary me-2">Guardar cambios</button>
+            <button type="reset" class="btn btn-outline-secondary">Cancelar</button>
           </div>
         </form>
       </div>

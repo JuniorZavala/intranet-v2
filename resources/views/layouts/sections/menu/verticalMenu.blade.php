@@ -4,7 +4,7 @@
   <div class="app-brand demo">
     <a href="{{url('/')}}" class="app-brand-link">
       <span class="app-brand-logo demo">
-        <img src="assets/img/logos/logo-inmobitec-footer.png" width="160px">
+        <img src="{{asset('assets/img/logos/logo-inmobitec-footer.png')}}" width="160px">
       </span>
     </a>
 

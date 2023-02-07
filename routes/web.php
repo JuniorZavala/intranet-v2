@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AreasController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +29,8 @@ Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
 Route::get('/empleados',[EmpleadoController::class,'index'])->name('empleados');
 Route::get('/empleados/{empleado}',[EmpleadoController::class,'show'])->name('empleado-show');
+Route::get('areas/{empresa}',[EmpresasController::class,'mostrarAreas'])->name('mostrar-areas');
+Route::get('puestos',[AreasController::class,'mostrarPuestos'])->name('mostrar-puestos');
 
 
 // layout
