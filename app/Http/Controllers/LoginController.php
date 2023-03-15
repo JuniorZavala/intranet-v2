@@ -21,7 +21,7 @@ class LoginController extends Controller
       'password' => 'required',
     ]);
 
-    if (Auth::attempt(['email'=> $request->email,'password'=> $request->password])) {
+    if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
       $request->session()->regenerate();
       $user = $this->getUser();
@@ -29,9 +29,11 @@ class LoginController extends Controller
       return Redirect::route('dashboard');
     }
 
+    return redirect()->back();
   }
 
-  private function getUser(){
+  private function getUser()
+  {
     return Auth::user();
   }
 }
